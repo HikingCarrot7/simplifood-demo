@@ -1,6 +1,6 @@
 # simplifood demo
 
-## Ejecutar el proyecto en local
+## Levantar el proyecto en local
 
 ```bash
 npm install && npm run dev
@@ -20,7 +20,7 @@ El acceso a las credenciales del usuario se hace por `server-side`.
 
 El fetching de la información se hace por server-side utilizando `server components`; posteriormente los datos son pasados a `client components` para renderizarse.
 
-Los services son básicamente `server actions` que realizan peticiones a la api para mandar o recibir información. Todo este proceso se realiza server-side.
+La capa service (`/services`) son básicamente `server actions` que realizan peticiones a la api para mandar o recibir información. Todo este proceso se realiza server-side.
 
 ### Manejo de estado local
 
@@ -29,3 +29,5 @@ Se utilizó [zustand](https://github.com/pmndrs/zustand) para el manejo local de
 ### Refresh token
 
 Se utilizó [axios](https://github.com/axios/axios) para el manejo de las peticiones. Cuando una petición responde con un status `401`, un interceptor es invocado para realizar el `refresh token`. Este interceptor hace una petición a `/api/refresh` que es manejada por un `route handler` (`/app/api/refresh/route.ts`) de Nextjs. Este route handler se creo con la finalidad de tener acceso a las cookies con la información del usuario del lado del servidor. El route handler se encarga llamar a la api externa para obtener el refresh token y actualizar las cookies con el nuevo refresh token.
+
+Si no es posible solicitar un nuevo token con el refresh token, la sesión del usuario es cerrada y se le redirige a la página de login.
