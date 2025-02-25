@@ -66,7 +66,7 @@ const OrdersTable = ({ initialOrders }: OrdersTableProps) => {
           </p>
           <h2 className='font-bold text-2xl'>Mis pedidos</h2>
         </div>
-        <div className='flex flex-col mt-2 md:mt-0'>
+        <div className='flex flex-col mt-4 md:mt-0'>
           <label htmlFor='date-range' className='text-left'>
             Rango de fechas
           </label>
@@ -86,8 +86,11 @@ const OrdersTable = ({ initialOrders }: OrdersTableProps) => {
       {/* Table */}
       <div className='border-t-2 border-simplifud'>
         <table
-          className='w-full text-center text-sm'
-          style={{ borderCollapse: 'separate', borderSpacing: '0 0.5em' }}
+          className='w-full mx-auto text-center text-sm overflow-x-auto whitespace-nowrap block xl:table'
+          style={{
+            borderCollapse: 'separate',
+            borderSpacing: '0 0.5em',
+          }}
         >
           <thead className='border'>
             <tr>
