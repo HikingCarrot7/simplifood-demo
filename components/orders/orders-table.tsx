@@ -49,7 +49,6 @@ const OrdersTable = ({ initialOrders }: OrdersTableProps) => {
     setActiveHeader(activeHeader === header ? null : header);
   };
 
-  // Handle delete confirmation
   const handleDelete = (id: string) => {
     if (window.confirm('¿Estás seguro que quieres eliminar este pedido?')) {
       deleteOrder(id);
